@@ -9,8 +9,7 @@ func TestConnect(t *testing.T) {
 		{PGConnection{"postgres", "", "postgres", "localhost"}},
 	}
 	for _, c := range cases {
-		conn, _ := Connect(c.in)
-		err := conn.Ping()
+		conn, err := Connect(c.in)
 		if err != nil {
 			t.Errorf("Error connecting to database: %q", err)
 		} else {
